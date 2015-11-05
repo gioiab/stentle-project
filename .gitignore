@@ -98,3 +98,5 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
+### Build
+build/
