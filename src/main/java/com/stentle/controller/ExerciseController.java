@@ -30,7 +30,7 @@ public class ExerciseController {
 
     @RequestMapping(value = {"/alumni"}, method = RequestMethod.POST)
     public void get(@RequestBody @Validated Alumnus alumnus, BindingResult bindingResult) {
-        LOG.debug("GET [/alumni] - " + alumnus.toString());
+        LOG.debug("POST [/alumni] - " + alumnus.toString());
         alumnusValidator.validate(alumnus, bindingResult);
         if (!bindingResult.hasErrors()) {
             alumnusRepository.save(alumnus);
