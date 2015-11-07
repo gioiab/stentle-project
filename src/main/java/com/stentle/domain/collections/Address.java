@@ -1,14 +1,21 @@
 package com.stentle.domain.collections;
 
-import org.springframework.data.annotation.Id;
+import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 /**
  * Created by gioiaballin on 07/11/15.
  */
 public class Address {
 
+    @NotEmpty(message = "The street is mandatory!")
     private String street;
+
+    @NotEmpty(message = "The street number is mandatory!")
+    @Pattern(regexp="[0-9]+", message="Street number should contain only numbers!")
     private String number;
+
+    @NotEmpty(message = "The country is mandatory!")
     private String country;
 
     public void setStreet(String street) {
