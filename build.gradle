@@ -36,7 +36,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
     compile("org.springframework:spring-context-support:4.1.4.RELEASE")
 
+    // Spring Data Mongo
     compile("org.springframework.data:spring-data-mongodb:1.8.0.RELEASE")
+
+    // JSR-303 Validation with Hibernate
+    compile("org.hibernate:hibernate-validator:4.2.0.Final")
 
 }
 
