@@ -8,6 +8,7 @@ public class Education {
     private EducationItem master;
     private EducationItem phd;
 
+
     public void setMaster(EducationItem master) {
         this.master = master;
     }

@@ -8,6 +8,11 @@ public class EducationItem {
     private String university;
     private String year;
 
+
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
     public String getUniversity() {
         return university;
     }
