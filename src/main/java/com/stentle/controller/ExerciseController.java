@@ -5,11 +5,16 @@ package com.stentle.controller;
  */
 import com.stentle.domain.collections.Alumnus;
 import com.stentle.domain.repositories.AlumnusRepository;
+import com.stentle.domain.validators.AlumnusValidator;
+import com.stentle.exception.ArgumentNotValidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+
 
 @RestController
 @RequestMapping(value = {"/ex-1"})
@@ -20,10 +25,18 @@ public class ExerciseController {
     @Autowired
     AlumnusRepository alumnusRepository;
 
+    @Autowired
+    AlumnusValidator alumnusValidator;
+
     @RequestMapping(value = {"/alumni"}, method = RequestMethod.POST)
-    public void get(@RequestBody Alumnus alumnus) {
+    public void get(@RequestBody @Validated Alumnus alumnus, BindingResult bindingResult) {
         LOG.debug("GET [/alumni] - " + alumnus.toString());
-        alumnusRepository.save(alumnus);
+        alumnusValidator.validate(alumnus, bindingResult);
+        if (!bindingResult.hasErrors()) {
+            alumnusRepository.save(alumnus);
+        } else {
+            throw new ArgumentNotValidException();
+        }
     }
 
     @RequestMapping(value = {"/alumni"}, method = RequestMethod.GET)
