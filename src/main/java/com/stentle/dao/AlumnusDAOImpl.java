@@ -22,12 +22,26 @@ public class AlumnusDAOImpl implements AlumnusDAO {
     @Autowired
     MongoOperations mongoOperations;
 
-
+    /**
+     * Given an {@link Alumnus}, saves it.
+     *
+     * @param alumnus the alumnus to be saved
+     */
     public void save(Alumnus alumnus) {
         Preconditions.checkNotNull(alumnus);
         mongoOperations.save(alumnus);
     }
 
+    /**
+     * Given the name, the education and the pagination requirements, returns
+     * the page of the alumni that satisfy the query criteria. If neither the name
+     * or the education is given, returns all the alumni stored.
+     *
+     * @param name the name of the alumnus (it could be null)
+     * @param education the education level (it could be null
+     * @param pageable the paging requirements
+     * @return an {@link AlumniPage}
+     */
     public AlumniPage findAlumni(String name, String education, Pageable pageable) {
         Preconditions.checkNotNull(pageable);
         Query query = getQuery(name, education);

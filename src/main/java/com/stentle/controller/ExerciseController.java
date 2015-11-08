@@ -35,7 +35,7 @@ public class ExerciseController {
     AlumnusValidator alumnusValidator;
 
     /**
-     * Given a POST request for a {@link Alumnus}-like JSON, saves the JSON into a collection
+     * Given a POST request for an {@link Alumnus}-like JSON, saves the JSON into a collection
      * named alumni. A custom validation is used to ensure that all the address field are
      * given and the street number is made by numbers only. If an input alumnus is not valid,
      * returns a 400 BAD REQUEST exception.
@@ -54,6 +54,16 @@ public class ExerciseController {
         }
     }
 
+    /**
+     * Given a GET request for a {@link Alumnus}-like JSON, retrieves the documents which satisfy
+     * the input query parameters. Results are paged. If no result is retrieves, returns
+     * 204 NO CONTENT.
+     *
+     * @param name the alumnus' name
+     * @param education the alumnus' education level
+     * @param page the requested page and size
+     *
+     */
     @RequestMapping(value = {"/alumni"}, method = RequestMethod.GET)
     public @ResponseBody AlumniPage get(@RequestParam(value="name", required = false) String name,
                                         @RequestParam(value="education", required = false) String education,
