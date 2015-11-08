@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by gioiaballin on 07/11/15.
  */
-@Document
+@Document(collection="alumni")
 public class Alumnus {
 
     @Id

@@ -1,8 +1,11 @@
 package com.stentle.domain.collections;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Created by gioiaballin on 07/11/15.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Education {
 
     private EducationItem master;
