@@ -65,7 +65,7 @@ public class ExerciseController {
      *
      */
     @RequestMapping(value = {"/alumni"}, method = RequestMethod.GET)
-    public @ResponseBody AlumniPage get(@RequestParam(value="name", required = false) String name,
+    public AlumniPage get(@RequestParam(value="name", required = false) String name,
                                         @RequestParam(value="education", required = false) String education,
                                         Pageable page) {
         LOG.debug("GET [/alumni] - page: " + page.getPageNumber() + " - pageSize: " + page.getPageSize());
