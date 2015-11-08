@@ -73,7 +73,7 @@ public class AlumnusDAOImpl implements AlumnusDAO {
 
     private Query getFindByNameAndEducationQuery(String name, String education) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("name").regex(name));
+        query.addCriteria(Criteria.where("name").is(name));
         // "NoSQL" injection to investigate
         query.addCriteria(Criteria.where("education." + education).exists(true));
         return query;
@@ -81,7 +81,7 @@ public class AlumnusDAOImpl implements AlumnusDAO {
 
     private Query getFindByNameQuery(String name) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("name").regex(name));
+        query.addCriteria(Criteria.where("name").is(name));
         return query;
     }
 
