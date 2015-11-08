@@ -6,14 +6,11 @@
 * Headers: 
     * Content­Type: application/json 
     * RequestBody:
-        {
-        “name”:”nome”;
-        “addresses”:[
-        { “street”:”streetname”, “number”:”22”, “country”:”country”},
-        { “street”:”streetname2”, “number”:”33”, “country”:”country”}
-        ],
-        “education”:{“master”:{“university”:”Politecnico Milano”, year: 2004}, “phd”:{“university”:”UCSD”, year: 2009}}
-        }
+        {“name”:”nome”,
+         “addresses”:[ { “street”:”streetname”, “number”:”22”, “country”:”country”},
+                       { “street”:”streetname2”, “number”:”33”, “country”:”country”} ],
+         “education”:{ “master”:{“university”:”Politecnico Milano”, year: 2004}, 
+                       “phd”:{“university”:”UCSD”, year: 2009} } }
 
 API 1 saves the payload on a local DB and:
 * validate the payload so that only completed address are accepted
@@ -31,12 +28,10 @@ API 1 saves the payload on a local DB and:
 * Headers: 
     * Content­Type: application/json
     * Response Body:
-    {
-    “totalCount”: [total number of records]
-    "totalPages": [total number of pages]
-    "page": [the current page index]
-    “data:”[the list of elements found] 
-    }
+        { “totalCount”: [total number of records],
+          "totalPages": [total number of pages],
+          "page": [the current page index], 
+          “data:”[the list of elements found] }
     
 API 2 allows to retrieve the alumni already stored. Results are paged. If no input parameters are
 given, the API returns all the alumni stored with default paging parameters (page=0, size=20).
