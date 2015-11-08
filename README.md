@@ -1,7 +1,7 @@
 # stentle-project
 
 ## API 1
-* Endpoint: h ttp://localhost/ex­1/alumni
+* Endpoint: http://localhost/ex­1/alumni
 * HTTP method: POST
 * Headers: 
     * Content­Type: application/json 
